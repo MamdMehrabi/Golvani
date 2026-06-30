@@ -1,10 +1,15 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "Chat Application"
+    APP_NAME: str
     DEBUG: bool = True
 
-    SQLALCHEMY_DATABASE_URL: str = "sqlite:///./chat.db"
+    SQLALCHEMY_DATABASE_URL: str
+
+    model_config = SettingsConfigDict(
+        env_file="../.env", 
+        env_file_encoding="utf-8",
+    )
 
 settings = Settings()

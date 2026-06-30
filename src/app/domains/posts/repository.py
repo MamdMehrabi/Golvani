@@ -11,7 +11,7 @@ class PostRepository:
     def get_all_posts(self) -> list[Post]:
         return self.db.query(Post).all()  # type: ignore
 
-    def create_post(self, username: str, content: str, time: str) -> Posts:
+    def create_post(self, username: str, content: str, time: str) -> Post:
         post = Post(
             username=username,
             content=content,
